@@ -1,28 +1,52 @@
 <?php
-// index.php (controlador de rutas)
+// 1. Iniciamos sesión
+session_start();
 
-require_once './controllers/AlumnoController.php'; // incluimos la declaración de la Clase AlumnoController
+// 2. Incluimos la conexión (Asegúrate de que la ruta sea correcta)
+require_once './config/Database.php'; 
+$database = new Database();
+$db = $database->getConnection();
 
-$controller = new AlumnoController();            // creamos una instancia del controlador de alumno
+// 3. Primero determinamos la acción
+// es lo mismo que esta sentencia pero mas corta 
+// $action = isset($_GET['action']) ? $_GET['action'] : 'index';
+$action = $_GET['action'] ?? 'login'; 
 
-// Determina qué acción se solicita, si no hubiera ninguna, por defecto adoptamos index
-$action = isset($_GET['action']) ? $_GET['action'] : 'index';
+// 4. EL PORTERO: Si no está logueado y no va al login, lo echamos
+if (!isset($_SESSION['logueado']) && $action !== 'login') {
+    header('Location: index.php?action=login');
+    exit;
+}
 
-// Llama al método correspondiente del controlador
+// 5. Cargamos los controladores
+require_once './controllers/AlumnoController.php';
+require_once './controllers/AuthController.php';
+
+// 6. Creamos las instancias pasándole la base de datos ($db)
+$controller = new AlumnoController($db);
+$controllerLogin = new AuthController($db);
+
+// 7. El Switch de rutas
 switch ($action) {
+    case 'login':
+        $controllerLogin->login();
+        break;
     case 'index':
-        $controller->index();          // se invoca al método index() de AlumnoController
+        $controller->index();
         break;
     case 'create':
-        $controller->create();         // se invoca al método create() de AlumnoController
+        $controller->create();
         break;
     case 'edit':
-        $controller->edit();           // se invoca al método edit() de AlumnoController
+        $controller->edit();
         break;
     case 'delete':
-        $controller->delete();         // se invoca al método delete() de AlumnoController
+        $controller->delete();
+        break;
+    case 'logout':
+        include 'logout.php';
         break;
     default:
-        $controller->index();          // por defecto, se invoca a index()
+        $controller->index();
         break;
 }
