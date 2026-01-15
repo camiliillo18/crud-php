@@ -1,0 +1,35 @@
+/* Estilo base del cuadro (antes de marcar) */
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border: 2px solid var(--primary);
+    background-color: var(--secondary);
+    cursor: pointer;
+    position: relative;
+    vertical-align: middle;
+}
+
+/* Estilo cuando está marcado */
+input[type="checkbox"]:checked {
+    background-color: var(--accent);
+}
+
+input[type="checkbox"]:checked::after {
+    content: "X";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#volver-atras {
+    transition: all .3s;
+    &:hover {
+        transform: scale(1.2);
+    }
+}

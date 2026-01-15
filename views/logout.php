@@ -1,5 +1,4 @@
 <?php
-    include "establecer-sesion.php";
     $_SESSION = [];
     // Con este if preguntamos si las sesiones usan cookies
     if (ini_get("session.use_cookies")) {
