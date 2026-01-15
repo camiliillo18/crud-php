@@ -19,7 +19,7 @@ class AuthController {
             if ($datos_db && $password_escrita == $datos_db['password']) {
                 session_start();
                 $_SESSION['logueado'] = true;
-                $_SESSION['nombre_usuario'] = $datos_db['username'];
+                $_SESSION['nombre_usuario'] = $datos_db['usuario'];
 
                 header("Location: index.php?action=index"); // Te manda a la lista de alumnos
                 exit;

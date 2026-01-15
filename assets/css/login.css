@@ -14,16 +14,31 @@
 
 body {
   background-color: var(--secondary);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
   padding: 20px;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 .login-container {
   width: 100%;
   max-width: 400px;
+  border: 1px solid var(--primary);
+  padding: 40px 30px;
+  background-color: var(--secondary);
+  box-shadow: var(--shadow);
+  position: relative;
+  border-radius: 12px;
+}
+
+.header-container {
+  border-bottom: 1px solid var(--primary);
+}
+
+.listar-container {
+  width: 100%;
   border: 1px solid var(--primary);
   padding: 40px 30px;
   background-color: var(--secondary);
@@ -102,24 +117,6 @@ button:hover {
   transform: translate(-2px, -2px) !important;
 }
 
-a {
-  width: 100% !important;
-  padding: 12px !important;
-  background-color: var(--accent) !important;
-  color: var(--secondary) !important;
-  border: 2px solid var(--primary) !important;
-  font-size: 16px !important;
-  font-weight: bold !important;
-  cursor: pointer !important;
-  margin-top: 10px !important;
-  transition: all 0.3s !important;
-}
-
-a:hover {
-  box-shadow: 4px 4px 0px var(--primary) !important;
-  transform: translate(-2px, -2px) !important;
-}
-
 .divider {
   display: flex;
   align-items: center;
@@ -177,4 +174,25 @@ a:hover {
   font-weight: bold;
   box-shadow: 4px 4px 0px var(--primary);
   margin-bottom: 20px;
+}
+
+.text-neon {
+  text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18, 2px 2px 2px rgba(18,206,30,0);
+}
+
+.a-btn {
+  padding: 12px !important;
+  background-color: var(--accent) !important;
+  color: var(--secondary) !important;
+  border: 2px solid var(--primary) !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  margin-top: 10px !important;
+  transition: all 0.3s !important;
+}
+
+.a-btn:hover {
+  box-shadow: 4px 4px 0px var(--primary) !important;
+  transform: translate(-2px, -2px) !important;
 }

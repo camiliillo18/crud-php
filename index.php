@@ -19,11 +19,11 @@ if (!isset($_SESSION['logueado']) && $action !== 'login') {
 }
 
 // 5. Cargamos los controladores
-require_once './controllers/AlumnoController.php';
+require_once './controllers/MascotaController.php';
 require_once './controllers/AuthController.php';
 
 // 6. Creamos las instancias pasándole la base de datos ($db)
-$controller = new AlumnoController($db);
+$controller = new MascotaController($db);
 $controllerLogin = new AuthController($db);
 
 // 7. El Switch de rutas

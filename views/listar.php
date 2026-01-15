@@ -6,11 +6,16 @@
     <meta charset="UTF-8">
     <title>Listado de Alumnos (MVC)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/CRUD-PHP/assets/css/login.css">
 </head>
 
 <body>
+    <div class="d-flex justify-content-between container w-100 my-4 header-container">
+        <p><?php echo $_SESSION['nombre_usuario'] ?><p>
+        <p class="text-end "><a class="a-btn" href="/CRUD-PHP/views/logout.php">Logout</a></p>
+    </div>
     <div class="container my-5">
-        <h2 class="text-center">Listado de Alumnos</h2>
+        <h2 class="text-center">Listado de Mascotas</h2>
     
         <?php if (isset($_GET['message'])): ?>
             <div class="message">
@@ -18,38 +23,42 @@
                 // aquí se mostrarían los diferentes mensajes de confirmación tras la realización
                 // de cualquiera de las 3 operaciones restantes: crear, modificar, eliminar
                 // ya que volveremos a esta vista
-                if ($_GET['message'] == 'created') echo 'Alumno creado correctamente.';
-                if ($_GET['message'] == 'updated') echo 'Alumno actualizado correctamente.';
-                if ($_GET['message'] == 'deleted') echo 'Alumno eliminado correctamente.';
+                if ($_GET['message'] == 'created') echo '<p class="text-center text-success text-neon my-4">Mascota creada correctamente.</p>';
+                if ($_GET['message'] == 'updated') echo '<p class="text-center text-success text-neon my-4">Mascota actualizada correctamente.</p>';
+                if ($_GET['message'] == 'deleted') echo '<p class="text-center text-success text-neon my-4">Mascota eliminada correctamente.</p>';
                 ?>
             </div>
         <?php endif; ?>
     
-        <p class="text-center"><a class="btn btn-primary" href="index.php?action=create">Añadir Nuevo Alumno</a></p>
-        <div class="container">
+        <p class="text-center"><a class="btn btn-primary" href="index.php?action=create">Añadir Nueva Mascota</a></p>
+        <div class="container listar-container">
             <table class="table table-hover text-center">
                 <thead>
                     <tr>
-                        <th>Num Alumno</th>
+                        <th>Id Mascota</th>
                         <th>Nombre</th>
-                        <th>Apellidos</th>
-                        <th>Fecha Nacimiento</th>
-                        <th>Repite</th>
+                        <th>Especie</th>
+                        <th>Edad</th>
+                        <th>Fecha Ingreso</th>
+                        <th>Peso</th>
+                        <th>Vacunado</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($alumnos as $alumno): ?><!-- alumno es una colección de filas de la tabla -->
+                    <?php foreach ($mascotas as $mascota): ?><!-- mascota es una colección de filas de la tabla -->
                         <tr>
-                            <td><?php echo $alumno['numAlumno']; ?></td>
-                            <td><?php echo htmlspecialchars($alumno['nombre']); ?></td>
-                            <td><?php echo htmlspecialchars($alumno['apellidos']); ?></td>
-                            <td><?php echo htmlspecialchars($alumno['fechaNacimiento']); ?></td>
-                            <td><?php echo $alumno['repite'] ? 'Sí' : 'No'; ?></td>
+                            <td><?php echo $mascota['idmascota']; ?></td>
+                            <td><?php echo htmlspecialchars($mascota['nombre']); ?></td>
+                            <td><?php echo htmlspecialchars($mascota['especie']); ?></td>
+                            <td><?php echo htmlspecialchars($mascota['edad']); ?></td>
+                            <td><?php echo htmlspecialchars($mascota['fechaIngreso']); ?></td>
+                            <td><?php echo htmlspecialchars($mascota['peso']); ?></td>
+                            <td><?php echo $mascota['vacunado'] ? 'Sí' : 'No'; ?></td>
                             <td>
                                 <!-- en la última celda incluimos los botones para ir a borrar o editar una fila -->
-                                <a href="index.php?action=edit&id=<?php echo $alumno['numAlumno']; ?>" class="btn btnn btn-warning">Editar</a> |
-                                <a href="index.php?action=delete&id=<?php echo $alumno['numAlumno']; ?>" onclick="return confirm('¿Estás seguro?');" class="btn btn-danger">Eliminar</a>
+                                <a href="index.php?action=edit&id=<?php echo $mascota['idmascota']; ?>" class="btn btnn btn-warning">Editar</a> |
+                                <a href="index.php?action=delete&id=<?php echo $mascota['idmascota']; ?>" onclick="return confirm('¿Estás seguro?');" class="btn btn-danger">Eliminar</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
