@@ -10,27 +10,32 @@ Proyecto desarrollado en PHP utilizando el patrón de arquitectura **MVC** (Mode
 ## 📸 Capturas del Proyecto
 Aquí puedes ver el funcionamiento de la interfaz:
 
-**Login:**
-![Login](assets/imgs/login.jpg)
+**Login:** <br>
+![Login](assets/imgs/login.jpg) 
+<hr>
 
-**Panel Principal:**
+**Panel Principal:** <br>
 ![Dashboard](assets/imgs/inicio.jpg)
+<hr>
 
-**Creación de Mascotas:**
+**Creación de Mascotas:** <br>
 ![Mascotas](assets/imgs/crearMascota.jpg)
+<hr>
 
-**Edición de Mascotas:**
+**Edición de Mascotas:** <br>
 ![Mascotas](assets/imgs/editarMascota.jpg)
+<hr>
 
 ## 🛠️ Tecnologías utilizadas
 * **PHP**
 * **MySQL** (Base de datos)
 * **Arquitectura MVC**
 * **CSS / Bootstrap**
-* * **JS**
+* **JS**
 
 ## 📂 Estructura del Proyecto
-crud-php
+```text
+crud-php/
   ├── assets/             # Estilos, JS e Imágenes
   ├── config/             # Conexión a la base de datos
   ├── controllers/        # Lógica de las peticiones
@@ -39,6 +44,6 @@ crud-php
   │   └── info_usuarios.txt
   ├── models/             # Consultas y modelos de datos
   ├── views/              # Interfaz de usuario
-  └── index.php           # Punto de entrada
+  └── index.php           # Punto de entrada```
 
   Desarrollado por Camilo Dubra Corchs.
