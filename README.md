@@ -44,6 +44,6 @@ crud-php/
   │   └── info_usuarios.txt
   ├── models/             # Consultas y modelos de datos
   ├── views/              # Interfaz de usuario
-  └── index.php           # Punto de entrada```
+  └── index.php           # Punto de entrada
 
   Desarrollado por Camilo Dubra Corchs.
