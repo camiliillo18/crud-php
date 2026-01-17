@@ -1,0 +1,12 @@
+-- Datos para pasar el Login:
+	
+	usuario: camilo1234
+	password: Camilo1234
+
+
+
+-- Creación y privilegios usuario en BBDD:
+	
+	CREATE USER 'camilo_mascotas'@'localhost' IDENTIFIED BY 'NoSeQuePoner1234';
+	GRANT SELECT, INSERT, UPDATE, DELETE ON `crud-php`.* TO 'camilo_mascotas'@'localhost';
+	FLUSH PRIVILEGES;

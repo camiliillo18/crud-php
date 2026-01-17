@@ -4,8 +4,8 @@ class Database
 {
     private $host = "localhost";
     private $db_name = "crud-php";
-    private $username = "root";
-    private $password = "";
+    private $username = "camilo_mascotas";
+    private $password = "NoSeQuePoner1234";
     public $conn;
 
     public function getConnection()
